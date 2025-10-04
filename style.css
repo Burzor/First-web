@@ -5,6 +5,8 @@
   border: 1px solid #ccc;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
 }
 
 label {
@@ -27,7 +29,7 @@ button[type="submit"] {
   color: #fff;
   padding: 10px;
   border: none;
-  border-radius: 10px; /* Curved edges */
+  border-radius: 10px;
   cursor: pointer;
   position: relative;
   overflow: hidden;
@@ -55,3 +57,26 @@ button[type="submit"]:hover {
   background-color: #3e8e41;
 }
 
+.login-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(#FF69B4 20%, transparent 20%),
+                    radial-gradient(#FF69B4 20%, transparent 20%);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+  animation: heartMove 10s linear infinite;
+  opacity: 0.2;
+}
+
+@keyframes heartMove {
+  0% {
+    background-position: 0 0, 15px 15px;
+  }
+  100% {
+    background-position: 30px 30px, 45px 45px;
+  }
+}
